@@ -21,7 +21,6 @@ count letters
 is lower
 is upper
 is title
-is alphabet
 is numeric
 is decimal
 percentage calculator/calculate percentage
