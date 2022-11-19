@@ -1,0 +1,32 @@
+write
+add/addition
+subtract/sub
+multiply
+divide/div
+power
+mod/modulus
+compare
+round/round off
+convert to binary
+lower
+upper
+split
+swap case
+capitalize
+count
+length/len
+generate password/password generator
+convert to hexadecimal
+count letters
+is lower
+is upper
+is title
+is alphabet
+is numeric
+is decimal
+percentage calculator/calculate percentage
+roll dice/dice roll
+validate url/url validator
+replace
+last letter
+end
