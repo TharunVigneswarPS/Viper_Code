@@ -1,5 +1,6 @@
 import random
 import validators
+import qrcode
 
 def write(text):
     print(text)
@@ -30,7 +31,7 @@ def low(ltext):
     print(ltext.lower())
 def up(utext):
     print(utext.upper())
-def split(sentence):
+def spliter(sentence):
     split_list = sentence.split()
     for x in split_list:
         print(x)
@@ -93,7 +94,38 @@ def lastlet(llsent):
     llist = llsent.split()
     llist.reverse()
     print('The last letter of this word or sentence is', llist[0])
-
+def lstgen(lgtxt):
+    lst = []
+    while True:
+      worl = input('How to split? word-wise or letter-wise : ').lower()
+      if worl == 'word':
+          print(lgtxt.split())
+          break
+      elif worl == 'letter':
+          for each_letter in lgtxt:
+              lst.append(each_letter)
+          print(lst)
+          break
+      else:
+          continue
+def crefile(filename, ext):
+    open((filename + ext), 'w')
+def editfile(edfilename, edtxt):
+    text_file = open(edfilename, "r")
+    data = text_file.read()
+    text_file.close()
+    edit = open(edfilename, 'w')
+    edit.write(data + edtxt)
+def createqr(qrtxt, qrname):
+    qr_img = qrcode.make(qrtxt)  
+    qr_img.save(qrname + ".jpg") 
+def isPalindrome(s):
+    return s == s[::-1]
+def readfile(fnme):
+    with open(fnme, 'r') as file:
+        for line in file:
+            print(line)
+ 
 
 finc = ''
 
@@ -114,37 +146,76 @@ while finc != 'end':
     elif finc == 'is numeric':
         isnum(input('Enter data to check if it is numeric : '))
     elif finc == 'add':
-        add(input('Number 1 : '), input('Number 2 : '))
+        try:
+            add(input('Number 1 : '), input('Number 2 : '))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'addition':
-        add(input('Number 1 : '), input('Number 2 : '))
+        try:
+            add(input('Number 1 : '), input('Number 2 : '))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'subtract':
-        subtract(input('Number 1 : '), input('Number 2 : '))
+        try:
+            subtract(input('Number 1 : '), input('Number 2 : '))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'sub':
-        subtract(input('Number 1 : '), input('Number 2 : '))
+        try:
+            subtract(input('Number 1 : '), input('Number 2 : '))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'multiply':
-        multiply(input('Number 1 : '), input('Number 2 : '))
+        try:
+            multiply(input('Number 1 : '), input('Number 2 : '))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'divide':
-        divide(input('Number 1 : '), input('Number 2 : '))
+        try:
+            divide(input('Number 1 : '), input('Number 2 : '))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'div':
-        divide(input('Number 1 : '), input('Number 2 : '))
+        try:
+            divide(input('Number 1 : '), input('Number 2 : '))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'mod':
-        modulus(input('Number 1 : '), input('Number 2 : '))
+        try:
+            modulus(input('Number 1 : '), input('Number 2 : '))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'power':
-        power(input('Base : '), input('Exponent : '))
+        try:
+            power(input('Base : '), input('Exponent : '))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'compare':
-        compare(input('Number 1 : '), input('Number 2 : '))
+        try:
+            compare(input('Number 1 : '), input('Number 2 : '))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'round':
-        Round(float(input('Number : ')))
+        try:
+            Round(float(input('Number : ')))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'round off':
-        Round(float(input('Number : ')))
+        try:
+            Round(float(input('Number : ')))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'convert to binary':
-        binary(int(input('Enter number to convert to binary : ')))
+        try:
+            binary(int(input('Enter number to convert to binary : ')))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'lower':
         low(input('Enter text to convert to lower case : '))
     elif finc == 'upper':
         up(input('Enter text to convert to upper case : '))
     elif finc == 'split':
-        split(input('Enter sentence to split : '))
+        spliter(input('Enter sentence to split : '))
     elif finc == 'swap case':
         swap(input('Enter text to swap case : '))
     elif finc == 'capitalize':
@@ -165,17 +236,29 @@ while finc != 'end':
     elif finc == 'count letters':
         countlet(input('Enter a word or a sentence to count letters : '))
     elif finc == 'convert to hexadecimal':
-        hexa(int(input('Enter number to convert to hexadecimal : ')))
+        try:
+            hexa(int(input('Enter number to convert to hexadecimal : ')))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'convert to octal':
-        octa(int(input('Enter number to convert to octal : ')))
+        try:
+            octa(int(input('Enter number to convert to octal : ')))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'generate password':
         passgen()
     elif finc == 'password generator':
         passgen()
     elif finc == 'percentage calculator':
-        percent(input('Percentage from : '),input(' is what % of : '))
+        try:
+            percent(input('Percentage from : '),input(' is what % of : '))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'calculate percentage':
-        percent(input('Number : '),input(' is what % of : '))
+        try:
+            percent(input('Number : '),input(' is what % of : '))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'url validator':
         valiurl(input('Enter URL to validate : '))
     elif finc == 'validate url':
@@ -190,6 +273,35 @@ while finc != 'end':
         lastlet(input('Enter data to check last word : '))
     elif finc == 'find last word':
         lastlet(input('Enter data to check last word : '))
+    elif finc == 'last word finder':
+        lastlet(input('Enter data to check last word : '))
+    elif finc == 'list generator':
+        lstgen(input('Enter text to create as a list : '))
+    elif finc == 'generate list':
+        lstgen(input('Enter text to create as a list : '))
+    elif finc == 'create qr code':
+        createqr(input('Enter text to create a qr code : '), input('Enter name of the qr code : '))
+    elif finc == 'create qr':
+        createqr(input('Enter text to create a qr code : '), input('Enter name of the qr code : '))
+    elif finc == 'create file':
+        crefile(input('Enter file name to create : '), input('Enter file extension(Ex:- .html, .py, etc...) : '))
+    elif finc == 'edit file':
+        try:
+            editfile(input('Enter file name to open : '), input('Enter text to add to your file : '))
+        except FileNotFoundError:
+            print('Error : File not found')
+    elif finc == 'is palindrome':
+      s = input('Enter text to check for palindrome : ')
+      ans = isPalindrome(s)
+      if ans:
+          print("Yes")
+      else:
+          print("No")
+    elif finc == 'read file':
+        try:
+            readfile(input('Enter file name to print data(with extension) : '))
+        except FileNotFoundError:
+            print('Error : File not found')
     elif finc == 'end':
         break
     else:
