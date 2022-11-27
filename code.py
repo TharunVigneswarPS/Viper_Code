@@ -150,9 +150,18 @@ def shufcrds():
     print("You got:")
     for i in range(5):
         print(deck[i][0], "of", deck[i][1])
-def calendfind(yy, mm):
+def monthcalendfind(yy, mm):
     print(calendar.month(yy, mm))
-
+def yearcalendfind(yy):
+    print(calendar.calendar(yy))
+def savemoncalend(yy, mm, name):
+    open(name + '.txt', 'w+')
+    edit = open(name + '.txt', 'w')
+    edit.write(calendar.month(yy, mm))
+def saveyearcalend(yy, name):
+    open(name + '.txt', 'w+')
+    edit = open(name+ '.txt', 'w')
+    edit.write(calendar.calendar(yy))
 
 finc = ''
 
@@ -361,11 +370,31 @@ while finc != 'end':
             square_root(float(int(input('Enter Number for finding square root : '))))
         except ValueError:
             print('Error : Enter a number instead of other values')
-    elif finc == 'show calender':
+    elif finc == 'show monthly calender':
         try:
-            calendfind(int(input('Enter year : ')), int(input('Enter month number : ')))
+            monthcalendfind(int(input('Enter year : ')), int(input('Enter month number : ')))
         except ValueError:
             print('Error : Enter month or year properly')
+        except IndexError:
+            print('Error : Enter month or year properly')
+    elif finc == 'show yearly calender':
+        try:
+            yearcalendfind(int(input('Enter year : ')))
+        except ValueError:
+            print('Error : Enter year properly')
+        except IndexError:
+            print('Error : Enter year properly')
+    elif finc == 'save monthly calender':
+        try:
+            savemoncalend(int(input('Enter year : ')), int(input('Enter month : ')), input('Enter name for file : '))
+        except ValueError:
+            print('Enter month or year properly')
+    elif finc == 'save yearly calender':
+        try:
+            saveyearcalend(int(input('Enter year : ')), input('Enter name for file : '))
+        except ValueError:
+            print('Enter year properly')
+
     elif finc == 'end':
         break
     else:
