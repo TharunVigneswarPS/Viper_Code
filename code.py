@@ -1,6 +1,8 @@
 import random
 import validators
 import qrcode
+import itertools
+import calendar
 
 def write(text):
     print(text)
@@ -125,7 +127,32 @@ def readfile(fnme):
     with open(fnme, 'r') as file:
         for line in file:
             print(line)
- 
+def primenumber(pnum):
+    for Number in range (1, pnum+1):
+        count = 0
+        for i in range(2, (Number//2 + 1)):
+            if(Number % i == 0):
+                count = count + 1
+                break
+        if (count == 0 and Number != 1):
+            print(Number, end=' ')
+def square_root(srnum):
+    newrootnum = srnum ** 0.5
+    print(newrootnum)
+def randomnum(fromnum, tonum):
+    print(random.randint(fromnum, tonum))
+def multable(mtnum):
+    for i in range(1, 16):
+        print(mtnum, 'x', i, '=', mtnum*i)
+def shufcrds():
+    deck = list(itertools.product(range(1,14),['Spade','Heart','Diamond','Club']))
+    random.shuffle(deck)
+    print("You got:")
+    for i in range(5):
+        print(deck[i][0], "of", deck[i][1])
+def calendfind(yy, mm):
+    print(calendar.month(yy, mm))
+
 
 finc = ''
 
@@ -135,6 +162,18 @@ while finc != 'end':
     finc = input('Viper Code > ').lower()
     if finc == 'write':
         write(input('Enter text to write : '))
+    elif finc == 'generate random number':
+        try:
+            randomnum(int(input('Number from : ')), int(input('To : ')))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
+    elif finc == 'shuffle cards':
+        shufcrds()
+    elif finc == 'multiplication table':
+        try:
+            multable(int(input('Enter number to show multiplication table : ')))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
     elif finc == 'is upper':
         isup(input('Enter text to check if in upper case : '))
     elif finc == 'is lower':
@@ -302,6 +341,31 @@ while finc != 'end':
             readfile(input('Enter file name to print data(with extension) : '))
         except FileNotFoundError:
             print('Error : File not found')
+    elif finc == 'prime numbers finder':
+        try:
+            primenumber(int(input('Enter number to find prime numbers less than that : ')))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
+    elif finc == 'find prime numbers':
+        try:
+            primenumber(int(input('Enter number to find prime numbers less than that : ')))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
+    elif finc == 'find square root':
+        try:
+            square_root(float(int(input('Enter Number for finding square root : '))))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
+    elif finc == 'square root finder':
+        try:
+            square_root(float(int(input('Enter Number for finding square root : '))))
+        except ValueError:
+            print('Error : Enter a number instead of other values')
+    elif finc == 'show calender':
+        try:
+            calendfind(int(input('Enter year : ')), int(input('Enter month number : ')))
+        except ValueError:
+            print('Error : Enter month or year properly')
     elif finc == 'end':
         break
     else:
